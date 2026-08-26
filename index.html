@@ -1,69 +1,99 @@
 <!doctype html>
 <html lang="hi">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GauSeva 3.0 | Farmer Dashboard</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#176b2c">
+<meta name="description" content="GauSeva 2.0 — Cow and Buffalo Care, Feeding, Daily Tracking, Vaccination and Emergency Guidance.">
+<title>GauSeva Care | गौ सेवा ही राष्ट्र सेवा</title>
 <style>
-:root{--g:#176b2c;--g2:#2f8a42;--cream:#fffaf0;--ink:#17351e;--muted:#66736a;--line:#e4eadf;--white:#fff;--red:#d93636;--shadow:0 10px 28px rgba(23,80,34,.1)}
-*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}a{text-decoration:none;color:inherit}
-header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}.nav{max-width:1100px;margin:auto;padding:12px 18px;display:flex;align-items:center;gap:15px}.brand{font-weight:900;font-size:1.3rem;color:var(--g);margin-right:auto}.brand span{color:#f58220}.nav a{font-weight:700;font-size:.9rem}.btn{border:0;border-radius:11px;background:var(--g);color:#fff;padding:11px 15px;font-weight:800;cursor:pointer}.btn.alt{background:#eaf5ea;color:var(--g)}.btn.red{background:var(--red)}
-.hero{max-width:1100px;margin:auto;padding:48px 18px 30px}.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);margin:0}.hero p{color:var(--muted);max-width:650px}.grid{max-width:1100px;margin:auto;padding:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}.icon{font-size:2rem}.stat{font-size:2rem;font-weight:900;color:var(--g)}section{max-width:1100px;margin:auto;padding:30px 18px}.title{margin-bottom:18px}.title h2{margin:0}.form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.form input,.form select{padding:12px;border:1px solid #ccd9cc;border-radius:10px;font:inherit;background:white}.full{grid-column:1/-1}.animal{display:flex;align-items:center;justify-content:space-between;gap:12px}.animal small{color:var(--muted)}.empty{text-align:center;color:var(--muted);padding:25px}.hide{display:none}.pill{display:inline-block;padding:5px 9px;border-radius:99px;background:#eaf5ea;color:var(--g);font-size:.78rem;font-weight:800}
-footer{background:#073b16;color:#ecf7ed;margin-top:40px;padding:25px;text-align:center}
-@media(max-width:750px){.grid{grid-template-columns:1fr}.form{grid-template-columns:1fr}.nav a{display:none}}
+:root{--g:#176b2c;--g2:#2f8a42;--orange:#f58220;--cream:#fffaf0;--ink:#17351e;--muted:#66736a;--line:#e4eadf;--white:#fff;--red:#e53935;--blue:#147bd1;--purple:#7450c9;--shadow:0 12px 30px rgba(23,80,34,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--cream);color:var(--ink)}
+a{text-decoration:none;color:inherit}.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{max-width:1180px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:16px}.brand{display:flex;align-items:center;gap:9px;margin-right:auto}.logo{width:48px;height:48px;border-radius:50%;background:#eaf5e9;display:grid;place-items:center;font-size:28px}.brand b{font-size:1.45rem;color:var(--g)}.brand b span{color:var(--orange)}.tag{font-size:.72rem;color:var(--g);font-weight:800}
+nav{display:flex;gap:16px;align-items:center;font-size:.84rem;font-weight:800}nav a:hover{color:var(--g)}
+.lang{display:flex;border:1px solid #d7e0d5;border-radius:9px;overflow:hidden}.lang button{border:0;padding:9px 12px;background:white;font-weight:800;cursor:pointer}.lang .active{background:var(--g);color:white}
+.menu{display:none;border:0;background:white;font-size:25px}
+.hero{max-width:1180px;margin:auto;min-height:350px;padding:48px 40px;display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:25px;background:linear-gradient(90deg,#fff8eb 0%,#fff 52%,#f5edcf 100%);position:relative;overflow:hidden}
+.hero:after{content:"🐄";position:absolute;right:4%;bottom:-40px;font-size:180px;opacity:.09}.welcome{font-family:Georgia,serif;font-style:italic;font-weight:700;color:var(--g);font-size:1.45rem}.hero h1{font-size:clamp(3rem,6vw,5.1rem);line-height:.95;margin:8px 0}.hero h1 span{color:var(--orange)}.hero h2{margin:8px 0;font-size:1.4rem}.hero p{color:#3f4c43;max-width:550px}.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.badge{background:white;border:1px solid #edd9b7;border-radius:10px;padding:10px 13px;font-weight:800;font-size:.82rem;box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.hero-art{height:270px;border-radius:0 0 0 110px;background:linear-gradient(135deg,#e7c980,#f6dca7 45%,#d9e7c7);display:grid;place-items:center;overflow:hidden}.hero-art .animals{font-size:9rem;filter:drop-shadow(0 12px 8px rgba(0,0,0,.12))}
+.features{max-width:1180px;margin:auto;padding:28px 20px 18px;display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.feature{background:white;border:1px solid var(--line);border-radius:14px;padding:18px 12px;text-align:center;box-shadow:var(--shadow)}.feature .ico{font-size:2.1rem}.feature h3{margin:8px 0 6px;font-size:1rem}.feature p{font-size:.78rem;color:var(--muted);min-height:60px}.feature button{border:0;color:white;border-radius:8px;padding:9px 12px;font-weight:800;cursor:pointer;background:var(--g)}.feature:nth-child(2) button{background:#f2a314}.feature:nth-child(3) button{background:var(--blue)}.feature:nth-child(4) button{background:var(--red)}.feature:nth-child(5) button{background:var(--purple)}
+.stats{max-width:1180px;margin:12px auto 30px;padding:18px 20px;display:grid;grid-template-columns:repeat(5,1fr);background:#eef8ef;border:1px solid #d9e9d7;border-radius:14px;text-align:center}.stats b{display:block;font-size:1.45rem;color:var(--g)}.stats span{font-size:.8rem;font-weight:700}
+.founder{max-width:1180px;margin:auto;padding:0 20px 40px;display:grid;grid-template-columns:1fr 1.3fr;gap:18px}.panel{background:white;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);padding:20px}.founderbox{display:grid;grid-template-columns:170px 1fr;gap:20px;align-items:center}.founder img{width:170px;height:230px;object-fit:cover;border-radius:14px;border:4px solid #edf4e9}.eyebrow{color:var(--g);font-weight:900}.founder h2{font-size:1.8rem;margin:4px 0}.quote{font-size:1rem;font-weight:700;color:#3d5143;line-height:1.7}.contact{margin-top:12px;padding:12px;border:1px solid #e0e7dd;border-radius:10px}.contact a{display:block;color:var(--g);font-weight:800;margin:6px 0}
+.vision{text-align:center}.vision h2{font-size:1.8rem;color:var(--g)}.vision blockquote{font-size:1.3rem;font-weight:800;line-height:1.65;margin:12px auto;max-width:700px}.vision ul{list-style:none;text-align:left;max-width:680px;margin:15px auto;padding:0}.vision li{margin:9px 0}.vision li:before{content:"✓";color:var(--g);font-weight:900;margin-right:9px}
+footer{background:#073b16;color:#ecf7ed;padding:28px 20px 12px}.footergrid{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:25px}.footergrid h3{margin-top:0}.footergrid a{display:block;margin:7px 0;color:#dbeadf}.copy{text-align:center;border-top:1px solid #2c6038;margin-top:20px;padding-top:12px;font-size:.82rem}
+section[id]{scroll-margin-top:80px}
+@media(max-width:1000px){nav{display:none}.menu{display:block}.features{grid-template-columns:repeat(3,1fr)}.hero{grid-template-columns:1fr}.hero-art{display:none}.footergrid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.features{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr 1fr}.founder{grid-template-columns:1fr}.founderbox{grid-template-columns:120px 1fr}.founder img{width:120px;height:165px}.footergrid{grid-template-columns:1fr}.hero{padding:35px 22px}.brand b{font-size:1.15rem}}
 </style>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="application-name" content="GauSeva Care">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 </head>
 <body>
-<header><div class="nav"><a class="brand" href="#">🐄 GauSeva <span>3.0</span></a><a href="#dashboard">Dashboard</a><a href="#animals">Animals</a><button class="btn alt" onclick="logout()">Logout</button></div></header>
+<header class="top"><div class="nav">
+<a class="brand" href="#home"><div class="logo">🌿</div><div><b>GauSeva <span>Care</span></b><div class="tag">गौ सेवा ही राष्ट्र सेवा</div></div></a>
+<nav id="nav"><a href="#home">Home</a><a href="#care">Care Guide</a><a href="#feeding">Feeding Calculator</a><a href="#tracker">Daily Tracker</a><a href="#vaccines">Vaccination</a><a href="#emergency">Emergency</a><a href="#vet">Vet Help</a></nav>
+<div class="lang"><button id="hi" class="active" onclick="setLang('hi')">हिन्दी</button><button id="en" onclick="setLang('en')">English</button></div>
+<button class="menu" onclick="toggleNav()">☰</button>
+</div></header>
 
-<main>
-<section class="hero" id="dashboard">
-<div class="pill">👨‍🌾 Farmer Dashboard</div>
-<h1>नमस्ते, <span id="farmerName">Farmer</span> 👋</h1>
-<p>अपने farm और पशुओं की जानकारी एक जगह manage करें। यह version browser में data save करता है; online multi-device database बाद में जोड़ सकते हैं।</p>
+<section class="hero" id="home">
+<div><div class="welcome">Welcome to</div><h1>GauSeva <span>Care</span></h1><h2>स्वस्थ गौवंश, समृद्ध किसान, सशक्त भारत</h2><p>आपके पशुओं की Care, Health, Nutrition और Daily Management के लिए एक सरल digital companion.</p>
+<div class="badges"><div class="badge">🐂 Healthy Cows<br>Happy Farmers</div><div class="badge">🌿 Better Care<br>Better Milk</div><div class="badge">🛡️ Disease Free<br>Healthy Life</div><div class="badge">❤️ Gau Seva<br>Rashtra Seva</div></div></div>
+<div class="hero-art"><div class="animals">🐄 🐮</div></div>
 </section>
 
-<div class="grid">
-<div class="card"><div class="icon">🐄</div><div class="stat" id="animalCount">0</div><b>Total Animals</b></div>
-<div class="card"><div class="icon">🥛</div><div class="stat" id="milkTotal">0 L</div><b>Today's Milk</b></div>
-<div class="card"><div class="icon">💉</div><div class="stat" id="vaccineCount">0</div><b>Vaccination Records</b></div>
+<div class="features" id="care">
+<div class="feature"><div class="ico">🐄</div><h3>Care Guide</h3><p>गाय और भैंस की basic care, shelter, hygiene और best practices.</p><button onclick="location.href='#care-info'">Explore Guide</button></div>
+<div class="feature"><div class="ico">🌾</div><h3>Feeding Calculator</h3><p>Weight और milk production के आधार पर basic feeding estimate.</p><button onclick="location.href='#feeding'">Calculate Now</button></div>
+<div class="feature"><div class="ico">📅</div><h3>Daily Care Tracker</h3><p>Daily feeding, water, cleaning और health tasks track करें.</p><button onclick="location.href='#tracker'">Start Tracking</button></div>
+<div class="feature"><div class="ico">🚑</div><h3>Emergency Help</h3><p>Serious symptoms में जल्दी veterinary help लेने की guidance.</p><button onclick="location.href='#emergency'">Get Help Now</button></div>
+<div class="feature"><div class="ico">💉</div><h3>Vaccination</h3><p>Vaccination information और personal reminder save करें.</p><button onclick="location.href='#vaccines'">Vaccination Info</button></div>
+<div class="feature"><div class="ico">🩺</div><h3>Vet Help & Hospitals</h3><p>Veterinary professional से समय पर संपर्क करने की जानकारी.</p><button onclick="location.href='#vet'">Find Vet</button></div>
 </div>
 
-<section id="profile"><div class="card"><div class="title"><h2>👤 Farmer Profile</h2></div><div class="form">
-<input id="pName" placeholder="Farmer Name"><input id="pMobile" placeholder="Mobile Number">
-<input id="pVillage" placeholder="Village"><input id="pDistrict" placeholder="District">
-<input id="pState" placeholder="State"><input id="pFarm" placeholder="Farm Name">
-<button class="btn full" onclick="saveProfile()">Save Profile</button></div><p id="profileMsg"></p></div></section>
+<div class="stats"><div><b>50+</b><span>Cattle Care Tips</span></div><div><b>30+</b><span>Disease Information</span></div><div><b>20+</b><span>Daily Tasks</span></div><div><b>25+</b><span>Vaccine Topics</span></div><div><b>1000+</b><span>Farmers Goal</span></div></div>
 
-<section id="animals"><div class="card"><div class="title"><h2>🐄 Add Animal</h2><p style="color:var(--muted)">हर पशु का basic record रखें।</p></div>
-<div class="form">
-<input id="aName" placeholder="Animal Name / ID *">
-<select id="aType"><option>Cow</option><option>Buffalo</option><option>Calf</option></select>
-<input id="aBreed" placeholder="Breed">
-<input id="aAge" type="number" min="0" placeholder="Age (years)">
-<input id="aWeight" type="number" min="0" placeholder="Weight (kg)">
-<input id="aMilk" type="number" min="0" step=".1" placeholder="Milk (L/day)">
-<button class="btn full" onclick="addAnimal()">+ Add Animal</button>
-</div></div>
-<div id="animalList" style="margin-top:15px"></div></section>
+<section class="founder" id="about">
+<div class="panel founder"><div class="founderbox"><img src="lakshay-sharma.jpg" alt="Lakshay Sharma"><div><div class="eyebrow">Founder & Developer</div><h2>Lakshay Sharma</h2><p class="quote">“गौ सेवा मेरे लिए सिर्फ एक कार्य नहीं, बल्कि एक जिम्मेदारी और सच्ची सेवा है।”</p><div class="contact"><a href="tel:9720014305">📞 9720014305</a><a href="https://wa.me/919720014305">💬 Call / WhatsApp</a></div></div></div></div>
+<div class="panel vision"><h2>👁️ हमारा Vision</h2><blockquote>“गौ सेवा से प्रकृति का संतुलन, किसान की समृद्धि और राष्ट्र का उत्थान संभव है।”</blockquote><ul><li>हर किसान को सही जानकारी और डिजिटल सहायता देना।</li><li>हर गौवंश को स्वस्थ, सुरक्षित और पोषित बनाना।</li><li>बीमारियों की रोकथाम और समय पर इलाज को बढ़ावा देना।</li><li>गौ-आधारित कृषि और जैविक खेती को प्रोत्साहित करना।</li><li>गौ सेवा को जन-जन तक पहुँचाकर जागरूक समाज बनाना।</li></ul></div>
+</section>
 
-<section id="records"><div class="grid" style="padding:0">
-<div class="card"><h3>💉 Vaccination</h3><p class="muted">Animal चुनकर vaccination date/record बाद के module में जोड़ा जा सकता है।</p></div>
-<div class="card"><h3>🩺 Health</h3><p class="muted">Symptoms, treatment और vet notes को future records module में रखें।</p></div>
-<div class="card"><h3>🌾 Feeding</h3><p class="muted">Daily feed और water logs को dashboard से track करें।</p></div>
-</div></section>
-</main>
-<footer>© 2026 GauSeva 3.0 | Made with ❤️ by Lakshay Sharma</footer>
+<section id="care-info"><div class="panel"><h2>🐄 Care Guide</h2><p>साफ पानी, सूखा और हवादार shelter, balanced feed, स्वच्छ milking practice और रोज़ health observation रखें। अचानक बदलाव दिखे तो veterinarian से संपर्क करें।</p></div></section>
+
+<section id="feeding"><div class="panel"><h2>🌾 Feeding Calculator</h2><p class="muted">यह simplified educational estimate है, complete ration नहीं।</p><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px"><input id="weight" type="number" placeholder="Weight kg" style="padding:12px;border:1px solid #ccd9cc;border-radius:10px"><input id="milk" type="number" placeholder="Milk L/day" style="padding:12px;border:1px solid #ccd9cc;border-radius:10px"><button onclick="calc()" style="padding:12px;border:0;border-radius:10px;background:var(--g);color:white;font-weight:800">Calculate</button></div><div id="result" class="contact"></div></div></section>
+
+<section id="tracker"><div class="panel"><h2>📅 Daily Care Tracker</h2><div id="tasks"></div><div style="height:12px;background:#e7eee6;border-radius:99px;overflow:hidden;margin:15px 0"><div id="bar" style="height:100%;width:0;background:var(--g);transition:.3s"></div></div><b id="pct">0% completed</b></div></section>
+
+<section id="vaccines"><div class="panel"><h2>💉 Vaccination & Reminder</h2><p>Vaccination schedule animal, age, location और disease risk के अनुसार बदलता है। Exact schedule के लिए veterinarian की सलाह लें।</p><input id="date" type="date" style="padding:12px;border:1px solid #ccd9cc;border-radius:10px"><button onclick="saveDate()" style="padding:12px;border:0;border-radius:10px;background:var(--g);color:white;font-weight:800;margin-left:8px">Save Reminder</button><p id="dateMsg"></p></div></section>
+
+<section id="emergency"><div class="panel" style="border-color:#ffd0d0;background:#fff6f6"><h2 style="color:var(--red)">🚨 Emergency Help</h2><p>सांस लेने में गंभीर परेशानी, खड़ा न हो पाना, severe injury/bleeding, suspected poisoning, sudden severe bloating या difficult labour जैसी स्थिति में तुरंत veterinarian/animal hospital से संपर्क करें। बिना professional advice के दवा/injection न दें।</p></div></section>
+
+<section id="vet"><div class="panel"><h2>🩺 Vet Help</h2><p>स्थानीय veterinarian या सरकारी animal hospital से संपर्क करें। Emergency में अपने क्षेत्र की official veterinary service को प्राथमिकता दें।</p><a class="btn" href="https://www.google.com/maps/search/veterinary+hospital+near+me" target="_blank">Find Nearby Vet</a></div></section>
+
+<footer><div class="footergrid"><div><h3>🐄 GauSeva 2.0</h3><p>गौ माता की सेवा करें, यही जीवन का सबसे बड़ा धर्म है।</p></div><div><h3>Useful Links</h3><a href="#about">About Us</a><a href="#care">Care Guide</a><a href="#vaccines">Vaccination</a></div><div><h3>Quick Access</h3><a href="#feeding">Feeding Calculator</a><a href="#tracker">Daily Tracker</a><a href="#emergency">Emergency</a></div><div><h3>Contact</h3><a href="tel:9720014305">📞 9720014305</a><a href="https://wa.me/919720014305">💬 WhatsApp</a><p>Made with ❤️ by Lakshay Sharma</p></div></div><div class="copy">© 2026 GauSeva 2.0 | All Rights Reserved | Made with ❤️ by Lakshay Sharma</div></footer>
 
 <script>
-let profile=JSON.parse(localStorage.getItem('gausevaProfile')||'null');
-let animals=JSON.parse(localStorage.getItem('gausevaAnimals')||'[]');
-if(profile){['Name','Mobile','Village','District','State','Farm'].forEach(k=>{let el=document.getElementById('p'+k);if(el)el.value=profile[k.toLowerCase()]||''});document.getElementById('farmerName').textContent=profile.name||'Farmer'}
-function saveProfile(){profile={name:pName.value.trim(),mobile:pMobile.value.trim(),village:pVillage.value.trim(),district:pDistrict.value.trim(),state:pState.value.trim(),farm:pFarm.value.trim()};localStorage.setItem('gausevaProfile',JSON.stringify(profile));farmerName.textContent=profile.name||'Farmer';profileMsg.textContent='✅ Profile saved on this device.'}
-function addAnimal(){let name=aName.value.trim();if(!name){alert('Animal Name / ID भरें');return}animals.push({id:Date.now(),name,type:aType.value,breed:aBreed.value.trim(),age:aAge.value,weight:aWeight.value,milk:aMilk.value});localStorage.setItem('gausevaAnimals',JSON.stringify(animals));aName.value='';aBreed.value='';aAge.value='';aWeight.value='';aMilk.value='';render()}
-function removeAnimal(id){animals=animals.filter(a=>a.id!==id);localStorage.setItem('gausevaAnimals',JSON.stringify(animals));render()}
-function render(){animalList.innerHTML=animals.length?animals.map(a=>`<div class="card animal"><div><b>${a.name}</b> <span class="pill">${a.type}</span><br><small>${a.breed||'Breed not added'} • Age ${a.age||'-'} yr • Weight ${a.weight||'-'} kg • Milk ${a.milk||0} L/day</small></div><button class="btn red" onclick="removeAnimal(${a.id})">Delete</button></div>`).join(''):'<div class="card empty">अभी कोई animal registered नहीं है।</div>';animalCount.textContent=animals.length;milkTotal.textContent=animals.reduce((s,a)=>s+(Number(a.milk)||0),0).toFixed(1)+' L';vaccineCount.textContent=JSON.parse(localStorage.getItem('gausevaVaccines')||'[]').length}
-function logout(){if(confirm('Logout करना है?')){localStorage.removeItem('gausevaProfile');location.reload()}}
-render();
+function toggleNav(){let n=document.getElementById('nav');n.style.display=n.style.display==='flex'?'none':'flex';n.style.position='absolute';n.style.top='68px';n.style.right='15px';n.style.flexDirection='column';n.style.background='white';n.style.padding='15px';n.style.borderRadius='12px';n.style.boxShadow='0 12px 30px rgba(0,0,0,.15)'}
+function calc(){let w=+document.getElementById('weight').value,m=+document.getElementById('milk').value||0;if(!w){document.getElementById('result').textContent='Weight डालें।';return}let dm=(w*.025).toFixed(1);document.getElementById('result').innerHTML='<b>Basic estimate:</b> लगभग '+dm+' kg dry matter/day. Milk: '+m+' L/day. Exact ration के लिए veterinarian/nutritionist की सलाह लें।'}
+const tasks=['Fresh water checked','Feed given','Shelter cleaned','Health checked','Milking hygiene checked','Waste removed'];
+let box=document.getElementById('tasks');box.innerHTML=tasks.map((t,i)=>'<label style="display:block;padding:10px;border:1px solid #e5ebe3;border-radius:9px;margin:7px 0"><input type="checkbox" onchange="track()"> '+t+'</label>').join('');
+function track(){let xs=[...box.querySelectorAll('input')],n=xs.filter(x=>x.checked).length,p=Math.round(n/xs.length*100);document.getElementById('bar').style.width=p+'%';document.getElementById('pct').textContent=p+'% completed';localStorage.setItem('gausevaTasks',JSON.stringify(xs.map(x=>x.checked)))}
+try{let s=JSON.parse(localStorage.getItem('gausevaTasks'));if(s)s.forEach((v,i)=>box.querySelectorAll('input')[i].checked=v);track()}catch(e){}
+function saveDate(){let d=document.getElementById('date').value;if(d){localStorage.setItem('gausevaDate',d);document.getElementById('dateMsg').textContent='Reminder saved: '+d}}
+try{let d=localStorage.getItem('gausevaDate');if(d){document.getElementById('date').value=d;document.getElementById('dateMsg').textContent='Saved reminder: '+d}}catch(e){}
+function setLang(l){document.getElementById('hi').classList.toggle('active',l==='hi');document.getElementById('en').classList.toggle('active',l==='en');if(l==='en'){document.querySelector('.hero h2').textContent='Healthy Cattle, Prosperous Farmers, Strong India';document.querySelector('.hero p').textContent='A simple digital companion for cattle care, health, nutrition and daily management.'}else{document.querySelector('.hero h2').textContent='स्वस्थ गौवंश, समृद्ध किसान, सशक्त भारत';document.querySelector('.hero p').textContent='आपके पशुओं की Care, Health, Nutrition और Daily Management के लिए एक सरल digital companion.'}}
 </script>
-</body>
-</html>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js').catch(function () {});
+  });
+}
+</script>
+</body></html>
