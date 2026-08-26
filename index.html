@@ -30,14 +30,14 @@ section{max-width:1120px;margin:auto;padding:55px 18px}.title{text-align:center;
 .progress{height:13px;background:#e5ece5;border-radius:99px;overflow:hidden;margin:15px 0}.bar{height:100%;width:0;background:var(--green);transition:.3s}
 footer{background:#17331b;color:#eaf4ea;margin-top:35px}.foot{max-width:1120px;margin:auto;padding:35px 18px;display:flex;justify-content:space-between;gap:20px}
 .small{font-size:.88rem}.notice{font-size:.86rem;background:#fff8dd;border:1px solid #f2df9c;border-radius:12px;padding:12px;margin-top:12px}
-@media(max-width:800px){nav{display:none}.menu{display:block}.hero{grid-template-columns:1fr;padding-top:42px}.grid{grid-template-columns:1fr}.calc{grid-template-columns:1fr}.checks{grid-template-columns:1fr}.foot{flex-direction:column}}
+@media(max-width:800px){#about .card{grid-template-columns:1fr!important;text-align:center}#about ul{text-align:left}nav{display:none}.menu{display:block}.hero{grid-template-columns:1fr;padding-top:42px}.grid{grid-template-columns:1fr}.calc{grid-template-columns:1fr}.checks{grid-template-columns:1fr}.foot{flex-direction:column}}
 </style>
 </head>
 <body>
 <header><div class="nav">
 <a class="logo" href="#home"><span>🐄</span> GauSeva 2.0</a>
 <button class="menu" onclick="toggleNav()">☰</button>
-<nav id="nav"><a href="#care">Care</a><a href="#feeding">Feeding</a><a href="#emergency">Emergency</a><a href="#tracker">Tracker</a></nav>
+<nav id="nav"><a href="#care">Care</a><a href="#feeding">Feeding</a><a href="#emergency">Emergency</a><a href="#vaccines">Vaccines</a><a href="#about">Vision</a><a href="#tracker">Tracker</a><button class="btn alt" onclick="toggleLanguage()" id="langBtn">English</button></nav>
 </div></header>
 
 <main>
@@ -49,7 +49,7 @@ footer{background:#17331b;color:#eaf4ea;margin-top:35px}.foot{max-width:1120px;m
 <a class="btn" href="#care">शुरू करें</a>
 <a class="btn alt" href="#feeding">Feeding Calculator</a>
 </div>
-<div class="hero-card"><div class="cow">🐄</div><h2>Care with compassion</h2><p class="muted">पानी • पोषण • स्वच्छता • समय पर veterinary help</p></div>
+<div class="hero-card"><div style="font-size:1.2rem;font-weight:900;color:var(--green)">🌿 GAUSEVA • 2.0</div><div class="cow">🐄</div><h2>Care with compassion</h2><p class="muted">पानी • पोषण • स्वच्छता • समय पर veterinary help</p></div>
 </section>
 
 <section id="care"><div class="title"><h2>🐄 Cattle Care Guide</h2><p>रोज़मर्रा की basic care को व्यवस्थित रखें।</p></div>
@@ -77,6 +77,17 @@ footer{background:#17331b;color:#eaf4ea;margin-top:35px}.foot{max-width:1120px;m
 <div class="notice"><b>Important:</b> बिना professional advice के दवा, injection या घरेलू उपचार न दें। Emergency में स्थानीय veterinarian/animal hospital से तुरंत संपर्क करें।</div>
 </div></section>
 
+
+<section id="vaccines"><div class="title"><h2>💉 Vaccination & Reminder</h2><p>Important dates को अपने फोन में reminder के रूप में save करें।</p></div>
+<div class="card">
+<div class="grid" style="grid-template-columns:repeat(3,1fr)">
+<div class="card"><div class="icon">💉</div><h3>Vaccination</h3><p class="muted">अपने क्षेत्र और पशु की उम्र के अनुसार vaccination schedule के लिए veterinarian से सलाह लें।</p></div>
+<div class="card"><div class="icon">📅</div><h3>Next Check-up</h3><p class="muted">नियमित health check और vaccination records रखें।</p></div>
+<div class="card"><div class="icon">🔔</div><h3>Reminder</h3><input id="reminderDate" type="date" style="padding:11px;border:1px solid #ccd9cc;border-radius:10px;width:100%;font:inherit;margin:8px 0"><button class="btn" onclick="saveReminder()">Save Reminder</button><p id="reminderMsg" class="muted small"></p></div>
+</div>
+<div class="notice">Vaccination schedule location, disease risk, age and animal health पर निर्भर करता है। Exact schedule के लिए local veterinarian की सलाह लें।</div>
+</div></section>
+
 <section id="tracker"><div class="title"><h2>📅 Daily Care Tracker</h2><p>आज की basic care को tick करके progress देखें।</p></div>
 <div class="card">
 <div class="checks" id="checks">
@@ -92,6 +103,29 @@ footer{background:#17331b;color:#eaf4ea;margin-top:35px}.foot{max-width:1120px;m
 <button class="btn alt" style="margin-top:14px" onclick="resetTracker()">Reset today</button>
 </div></section>
 </main>
+
+
+<section id="about">
+<div class="title"><h2>🌱 Founder & Vision</h2><p>GauSeva को एक caring और useful digital platform बनाने की सोच।</p></div>
+<div class="card" style="display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:center">
+  <div style="text-align:center">
+    <img src="assets/lakshay-sharma.jpg" alt="Lakshay Sharma" style="width:220px;height:220px;object-fit:cover;border-radius:50%;border:7px solid #e7f4e7;box-shadow:0 12px 30px rgba(31,70,35,.15)">
+    <h3 style="margin:14px 0 2px">Lakshay Sharma</h3>
+    <p class="muted" style="margin:0">Founder & Developer</p>
+  </div>
+  <div>
+    <h2 style="margin-top:0;color:var(--green)">Our Vision</h2>
+    <p style="font-size:1.25rem;font-weight:800">“गौ सेवा से प्रकृति का संतुलन, किसान की समृद्धि और राष्ट्र का उत्थान संभव है।”</p>
+    <ul>
+      <li>हर किसान को सही और सरल जानकारी देना।</li>
+      <li>हर गौवंश की स्वस्थ, सुरक्षित और पोषित देखभाल में मदद करना।</li>
+      <li>बीमारियों की पहचान में जागरूकता बढ़ाना और समय पर veterinary help लेने के लिए प्रेरित करना।</li>
+      <li>Technology के माध्यम से पशुपालकों के daily care को आसान बनाना।</li>
+    </ul>
+    <a class="btn" href="tel:9720014305">📞 9720014305</a>
+  </div>
+</div>
+</section>
 
 <footer><div class="foot"><div><b>🐄 GauSeva 2.0</b><p class="small">Responsible cattle care information for everyday use.</p></div><div class="small">© 2026 GauSeva • Educational guidance only<br><b>Made by: Lakshay Sharma</b><br>📞 <a href="tel:9720014305" style="color:#eaf4ea">9720014305</a></div></div></footer>
 
@@ -109,6 +143,27 @@ function update(){let n=boxes.filter(x=>x.checked).length,p=Math.round(n/boxes.l
 boxes.forEach(x=>x.addEventListener('change',update));
 function resetTracker(){boxes.forEach(x=>x.checked=false);update()}
 try{const saved=JSON.parse(localStorage.getItem('gausevaTracker'));if(saved)saved.forEach((v,i)=>boxes[i].checked=v);update()}catch(e){}
+
+function saveReminder(){
+ const d=document.getElementById('reminderDate').value;
+ const msg=document.getElementById('reminderMsg');
+ if(!d){msg.textContent='पहले date चुनें।';return}
+ localStorage.setItem('gausevaReminder',d);
+ msg.textContent='Reminder date saved: '+d;
+}
+try{
+ const r=localStorage.getItem('gausevaReminder');
+ if(r){document.getElementById('reminderDate').value=r;document.getElementById('reminderMsg').textContent='Saved reminder: '+r}
+}catch(e){}
+
+let english=false;
+function toggleLanguage(){
+ english=!english;
+ document.getElementById('langBtn').textContent=english?'हिन्दी':'English';
+ document.querySelector('h1').textContent=english?'Better animal care, made simple.':'पशुओं की बेहतर देखभाल, आसान तरीके से।';
+ document.querySelector('.hero p').textContent=english?'Care guides, feeding guidance, emergency information and a daily tracker — all in one place.':'Cattle care guides, feeding guidance, emergency information और daily care tracker एक ही जगह मिलते हैं।';
+}
+
 </script>
 </body>
 </html>
