@@ -1,0 +1,32 @@
+{
+  "name": "GauSeva Care",
+  "short_name": "GauSeva",
+  "description": "GauSeva Care — cattle care, feeding, daily tracking, vaccination reminders, emergency guidance and vet help.",
+  "lang": "hi",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#176b2c",
+  "background_color": "#fffaf0",
+  "categories": [
+    "health",
+    "education",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
